@@ -40,3 +40,12 @@ This project analyzes real estate data across major Indian cities to uncover pri
 ## 📌 Future Improvements
 - Build interactive dashboard (Streamlit)
 - Add real-time data pipeline
+## 💡 Business Impact
+- Identified high-demand real estate zones across major cities
+- Highlighted undervalued areas for investment opportunities
+- Enabled data-driven decision-making using clustering and heatmaps
+
+## 📊 Visual Insights
+
+### 🗺️ Sample Heatmap
+![Heatmap](maps_output/map2_mumbai_heatmap.html)
