@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_861c7e5a843b65ac8695d971d781ef67 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style='position:fixed;
+     bottom:30px; left:30px;
+     z-index:1000;
+     background-color:white;
+     padding:12px;
+     border:2px solid #2D5016;
+     border-radius:8px;
+     font-family:Arial;
+     font-size:12px'>
+<b style='color:#2D5016'>Price per Sqft</b><br>
+<i style='color:#d73027'>●</i>
+    Very High (>₹8,000)<br>
+<i style='color:#fc8d59'>●</i>
+    High (₹6,000–8,000)<br>
+<i style='color:#91cf60'>●</i>
+    Moderate (₹4,500–6,000)<br>
+<i style='color:#1a9850'>●</i>
+    Affordable (<₹4,500)<br>
+<hr style='margin:4px 0'>
+<small>Click markers for details</small>
+</div>
+    
+<div style='position:fixed;
+     top:10px; left:50%;
+     transform:translateX(-50%);
+     z-index:1000;
+     background-color:white;
+     padding:10px 20px;
+     border:2px solid #2D5016;
+     border-radius:8px;
+     font-family:Arial'>
+<h3 style='margin:0;color:#2D5016'>
+    🏠 India Real Estate Price Intelligence
+</h3>
+<p style='margin:2px 0;
+          color:#666;font-size:12px'>
+    6 Cities | 27,505 Properties
+</p>
+</div>
+    
+            <div class="folium-map" id="map_861c7e5a843b65ac8695d971d781ef67" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_861c7e5a843b65ac8695d971d781ef67 = L.map(
+                "map_861c7e5a843b65ac8695d971d781ef67",
+                {
+                    center: [20.5937, 78.9629],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c5aa67e9e6c0d2f366df4082a417f99b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c5aa67e9e6c0d2f366df4082a417f99b.addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var circle_marker_659d2b772098d63157250ac854fc4943 = L.circleMarker(
+                [12.9716, 77.5946],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_63e9ec77ebed9ad1bd0b1ea010e6e3ea = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_44acfcc7f45d2ca1112e15de02cfb6df = $(`<div id="html_44acfcc7f45d2ca1112e15de02cfb6df" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Bangalore</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹5,372<br>             <b>Total Listings:</b>                 6,207<br>             <b>Common BHK:</b>                 3 BHK<br>             <b>Avg Amenity Score:</b>                 315.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_63e9ec77ebed9ad1bd0b1ea010e6e3ea.setContent(html_44acfcc7f45d2ca1112e15de02cfb6df);
+            
+        
+
+        circle_marker_659d2b772098d63157250ac854fc4943.bindPopup(popup_63e9ec77ebed9ad1bd0b1ea010e6e3ea)
+        ;
+
+        
+    
+    
+            circle_marker_659d2b772098d63157250ac854fc4943.bindTooltip(
+                `<div>
+                     Bangalore: ₹5,372/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b43d269fcee4321c7723d5beab41bcde = L.marker(
+                [13.271600000000001, 77.5946],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_3f4cbc9b51bc6dee5e97a1f24d68429b = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Bangalore\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_b43d269fcee4321c7723d5beab41bcde.setIcon(div_icon_3f4cbc9b51bc6dee5e97a1f24d68429b);
+            
+    
+            var circle_marker_b9af387a5c893851116881a3bd250485 = L.circleMarker(
+                [13.0827, 80.2707],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_b2441cdae578da3f0af127aa3d839472 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_65d52d5656655232bd7993846a66d32e = $(`<div id="html_65d52d5656655232bd7993846a66d32e" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Chennai</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹5,383<br>             <b>Total Listings:</b>                 5,014<br>             <b>Common BHK:</b>                 2 BHK<br>             <b>Avg Amenity Score:</b>                 315.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_b2441cdae578da3f0af127aa3d839472.setContent(html_65d52d5656655232bd7993846a66d32e);
+            
+        
+
+        circle_marker_b9af387a5c893851116881a3bd250485.bindPopup(popup_b2441cdae578da3f0af127aa3d839472)
+        ;
+
+        
+    
+    
+            circle_marker_b9af387a5c893851116881a3bd250485.bindTooltip(
+                `<div>
+                     Chennai: ₹5,383/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bbd12255dfd7459b6f8cb25460743f51 = L.marker(
+                [13.382700000000002, 80.2707],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_9ab1f176360e04a4ea1d0819d449e28c = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Chennai\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_bbd12255dfd7459b6f8cb25460743f51.setIcon(div_icon_9ab1f176360e04a4ea1d0819d449e28c);
+            
+    
+            var circle_marker_c9cde7a03bfed28b695cd8a27e7e83b1 = L.circleMarker(
+                [28.7041, 77.1025],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_94ef621715c56e60db7b90f0bc82d3f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_381d056860ba00f28fa57008e7b9515f = $(`<div id="html_381d056860ba00f28fa57008e7b9515f" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Delhi</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹6,000<br>             <b>Total Listings:</b>                 4,998<br>             <b>Common BHK:</b>                 3 BHK<br>             <b>Avg Amenity Score:</b>                 315.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_94ef621715c56e60db7b90f0bc82d3f9.setContent(html_381d056860ba00f28fa57008e7b9515f);
+            
+        
+
+        circle_marker_c9cde7a03bfed28b695cd8a27e7e83b1.bindPopup(popup_94ef621715c56e60db7b90f0bc82d3f9)
+        ;
+
+        
+    
+    
+            circle_marker_c9cde7a03bfed28b695cd8a27e7e83b1.bindTooltip(
+                `<div>
+                     Delhi: ₹6,000/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ff5f5ed4698a460635c13907a3eb4d1b = L.marker(
+                [29.0041, 77.1025],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_0acbd3228389ff4419f1b316339b320a = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Delhi\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_ff5f5ed4698a460635c13907a3eb4d1b.setIcon(div_icon_0acbd3228389ff4419f1b316339b320a);
+            
+    
+            var circle_marker_bbf6f69cc773e307dda3412820e8e197 = L.circleMarker(
+                [17.385, 78.4867],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_5992d3b617c18b1c5e7918d9fb317a80 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8f94088be5801af348195719043ed2a = $(`<div id="html_b8f94088be5801af348195719043ed2a" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Hyderabad</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹5,000<br>             <b>Total Listings:</b>                 2,518<br>             <b>Common BHK:</b>                 3 BHK<br>             <b>Avg Amenity Score:</b>                 6.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_5992d3b617c18b1c5e7918d9fb317a80.setContent(html_b8f94088be5801af348195719043ed2a);
+            
+        
+
+        circle_marker_bbf6f69cc773e307dda3412820e8e197.bindPopup(popup_5992d3b617c18b1c5e7918d9fb317a80)
+        ;
+
+        
+    
+    
+            circle_marker_bbf6f69cc773e307dda3412820e8e197.bindTooltip(
+                `<div>
+                     Hyderabad: ₹5,000/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ec6b746767ef7f0ba1d69138a299e4cc = L.marker(
+                [17.685000000000002, 78.4867],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_0528fdd06c9ccc7e798f48b22406a8af = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Hyderabad\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_ec6b746767ef7f0ba1d69138a299e4cc.setIcon(div_icon_0528fdd06c9ccc7e798f48b22406a8af);
+            
+    
+            var circle_marker_c3097469403be6eb2035dfdf44bb735c = L.circleMarker(
+                [22.5726, 88.3639],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_3d439c0e2b0c0e7fe9396ecccd021474 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c7076c9e4f8cb6088b32b72fd8f4acc4 = $(`<div id="html_c7076c9e4f8cb6088b32b72fd8f4acc4" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Kolkata</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹4,342<br>             <b>Total Listings:</b>                 6,507<br>             <b>Common BHK:</b>                 3 BHK<br>             <b>Avg Amenity Score:</b>                 315.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_3d439c0e2b0c0e7fe9396ecccd021474.setContent(html_c7076c9e4f8cb6088b32b72fd8f4acc4);
+            
+        
+
+        circle_marker_c3097469403be6eb2035dfdf44bb735c.bindPopup(popup_3d439c0e2b0c0e7fe9396ecccd021474)
+        ;
+
+        
+    
+    
+            circle_marker_c3097469403be6eb2035dfdf44bb735c.bindTooltip(
+                `<div>
+                     Kolkata: ₹4,342/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_17bc2405e8ff740948e75f7f5273496f = L.marker(
+                [22.872600000000002, 88.3639],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_134234c5e60924c065adc616cd2f8b9b = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Kolkata\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_17bc2405e8ff740948e75f7f5273496f.setIcon(div_icon_134234c5e60924c065adc616cd2f8b9b);
+            
+    
+            var circle_marker_9aae83d84c97c202eb4d5491b2cd4f8d = L.circleMarker(
+                [19.076, 72.8777],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+        var popup_b6ec9ca545203b450dfe7b574f9b0caa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5b1183e50cd7927df0e410403d2b1adf = $(`<div id="html_5b1183e50cd7927df0e410403d2b1adf" style="width: 100.0%; height: 100.0%;">             <div style='font-family:Arial;                         width:220px'>             <h3 style='color:#2D5016;                        margin:0'>Mumbai</h3>             <hr style='border-color:#4A7C28'>             <b>Median Price/sqft:</b>                 ₹10,410<br>             <b>Total Listings:</b>                 7,719<br>             <b>Common BHK:</b>                 2 BHK<br>             <b>Avg Amenity Score:</b>                 315.0<br>             <hr>             <small style='color:gray'>             Click city markers for details             </small>             </div>         </div>`)[0];
+                popup_b6ec9ca545203b450dfe7b574f9b0caa.setContent(html_5b1183e50cd7927df0e410403d2b1adf);
+            
+        
+
+        circle_marker_9aae83d84c97c202eb4d5491b2cd4f8d.bindPopup(popup_b6ec9ca545203b450dfe7b574f9b0caa)
+        ;
+
+        
+    
+    
+            circle_marker_9aae83d84c97c202eb4d5491b2cd4f8d.bindTooltip(
+                `<div>
+                     Mumbai: ₹10,410/sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7a054f9020d60f3831e2649c14e174b1 = L.marker(
+                [19.376, 72.8777],
+                {
+}
+            ).addTo(map_861c7e5a843b65ac8695d971d781ef67);
+        
+    
+            var div_icon_33f5e678def2d7eebf6b61b56ff9c45b = L.divIcon({
+  "html": "\n            \u003cdiv style=\u0027font-size:12px;\n                        font-weight:bold;\n                        color:#2D5016;\n                        white-space:nowrap\u0027\u003e\n                Mumbai\n            \u003c/div\u003e",
+  "iconSize": [100, 30],
+  "iconAnchor": [50, 0],
+  "className": "empty",
+});
+        
+    
+                marker_7a054f9020d60f3831e2649c14e174b1.setIcon(div_icon_33f5e678def2d7eebf6b61b56ff9c45b);
+            
+</script>
+</html>
